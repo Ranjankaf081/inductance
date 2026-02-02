@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* Engineering Calculator Design System */
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 15%;
+
+    --primary: 215 90% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 92%;
+    --secondary-foreground: 220 30% 25%;
+
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 15% 45%;
+
+    --accent: 165 70% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 88%;
+    --input: 220 20% 88%;
+    --ring: 215 90% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom engineering colors */
+    --engineering-blue: 215 90% 50%;
+    --engineering-green: 165 70% 42%;
+    --engineering-orange: 25 95% 55%;
+    --matrix-bg: 220 25% 12%;
+    --matrix-text: 165 100% 65%;
+    --formula-bg: 220 20% 96%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 220 15% 92%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 220 15% 92%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 220 15% 92%;
+
+    --primary: 215 85% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 220 15% 85%;
+
+    --muted: 220 20% 16%;
+    --muted-foreground: 220 15% 55%;
+
+    --accent: 165 70% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 215 85% 55%;
+
+    --matrix-bg: 220 30% 8%;
+    --matrix-text: 165 100% 65%;
+    --formula-bg: 220 25% 14%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .matrix-display {
+    @apply font-mono text-sm bg-[hsl(var(--matrix-bg))] text-[hsl(var(--matrix-text))] p-4 rounded-lg;
+  }
+
+  .formula-box {
+    @apply font-mono text-sm bg-[hsl(var(--formula-bg))] p-3 rounded-md border;
+  }
+
+  .input-engineering {
+    @apply font-mono text-right;
+  }
+
+  .result-highlight {
+    @apply bg-gradient-to-r from-[hsl(var(--primary)/0.1)] to-[hsl(var(--accent)/0.1)] border-l-4 border-l-[hsl(var(--primary))];
+  }
+}
