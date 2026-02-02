@@ -8,77 +8,80 @@
 
 @layer base {
   :root {
-    --background: 220 20% 97%;
-    --foreground: 220 30% 15%;
+    --background: 270 30% 97%;
+    --foreground: 270 20% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 30% 15%;
+    --card-foreground: 270 20% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 30% 15%;
+    --popover-foreground: 270 20% 15%;
 
-    --primary: 215 90% 50%;
+    --primary: 262 100% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 15% 92%;
-    --secondary-foreground: 220 30% 25%;
+    --secondary: 48 100% 60%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 15% 94%;
-    --muted-foreground: 220 15% 45%;
+    --muted: 270 15% 92%;
+    --muted-foreground: 270 15% 45%;
 
-    --accent: 165 70% 42%;
+    --accent: 36 100% 55%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 72% 51%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 88%;
-    --input: 220 20% 88%;
-    --ring: 215 90% 50%;
+    --border: 270 20% 88%;
+    --input: 270 20% 88%;
+    --ring: 262 100% 55%;
 
     --radius: 0.75rem;
 
-    /* Custom engineering colors */
-    --engineering-blue: 215 90% 50%;
-    --engineering-green: 165 70% 42%;
-    --engineering-orange: 25 95% 55%;
-    --matrix-bg: 220 25% 12%;
-    --matrix-text: 165 100% 65%;
-    --formula-bg: 220 20% 96%;
+    /* Custom engineering colors - Vibrant palette */
+    --engineering-blue: 262 100% 55%;
+    --engineering-green: 165 100% 48%;
+    --engineering-orange: 36 100% 55%;
+    --engineering-purple: 290 95% 48%;
+    --engineering-pink: 340 100% 55%;
+    --engineering-cyan: 188 100% 50%;
+    --matrix-bg: 270 25% 10%;
+    --matrix-text: 48 100% 70%;
+    --formula-bg: 270 30% 94%;
   }
 
   .dark {
-    --background: 220 25% 8%;
-    --foreground: 220 15% 92%;
+    --background: 270 30% 8%;
+    --foreground: 270 20% 92%;
 
-    --card: 220 25% 12%;
-    --card-foreground: 220 15% 92%;
+    --card: 270 30% 12%;
+    --card-foreground: 270 20% 92%;
 
-    --popover: 220 25% 12%;
-    --popover-foreground: 220 15% 92%;
+    --popover: 270 30% 12%;
+    --popover-foreground: 270 20% 92%;
 
-    --primary: 215 85% 55%;
+    --primary: 262 100% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 20% 18%;
-    --secondary-foreground: 220 15% 85%;
+    --secondary: 48 100% 65%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 20% 16%;
-    --muted-foreground: 220 15% 55%;
+    --muted: 270 20% 16%;
+    --muted-foreground: 270 15% 55%;
 
-    --accent: 165 70% 45%;
+    --accent: 36 100% 60%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 65% 55%;
+    --destructive: 0 84% 65%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 20%;
-    --input: 220 20% 20%;
-    --ring: 215 85% 55%;
+    --border: 270 20% 20%;
+    --input: 270 20% 20%;
+    --ring: 262 100% 60%;
 
-    --matrix-bg: 220 30% 8%;
-    --matrix-text: 165 100% 65%;
-    --formula-bg: 220 25% 14%;
+    --matrix-bg: 270 30% 8%;
+    --matrix-text: 48 100% 70%;
+    --formula-bg: 270 35% 16%;
   }
 }
 
@@ -112,5 +115,33 @@
 
   .result-highlight {
     @apply bg-gradient-to-r from-[hsl(var(--primary)/0.1)] to-[hsl(var(--accent)/0.1)] border-l-4 border-l-[hsl(var(--primary))];
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--accent))];
+  }
+
+  .gradient-secondary {
+    @apply bg-gradient-to-r from-[hsl(var(--secondary))] via-[hsl(var(--accent))] to-[hsl(var(--engineering-cyan))];
+  }
+
+  .gradient-header {
+    @apply bg-gradient-to-r from-[hsl(var(--engineering-purple))] via-[hsl(var(--primary))] to-[hsl(var(--engineering-cyan))];
+  }
+
+  .colorful-card {
+    @apply bg-gradient-to-br from-white to-slate-50 dark:from-slate-900 dark:to-slate-800 border-2 border-transparent hover:border-[hsl(var(--primary))] transition-all;
+  }
+
+  .icon-gradient-purple {
+    @apply text-[hsl(var(--engineering-purple))];
+  }
+
+  .icon-gradient-pink {
+    @apply text-[hsl(var(--engineering-pink))];
+  }
+
+  .icon-gradient-cyan {
+    @apply text-[hsl(var(--engineering-cyan))];
   }
 }

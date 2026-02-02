@@ -53,20 +53,15 @@ export function calculateInductanceMatrix(params: LineParameters): CalculationRe
       explanation: "For single conductor, GMR = r × e^(-1/4)"
     });
   } else {
-    // Bundle conductor: req = (r × B)^(1/2) for twin bundle
-    // General formula: req = (r × (N × R)^(N-1))^(1/N) where R = B / (2 × sin(π/N))
-    if (N === 2) {
-      req = Math.sqrt(r * B);
-    } else {
-      const R = B / (2 * Math.sin(Math.PI / N));
-      const product = r * Math.pow(N * R, N - 1);
-      req = Math.pow(product, 1 / N);
-    }
+    // Bundle conductor: req = (N × r × R^(N-1))^(1/N)
+    // where R = bundle spacing = B
+    const product = N * r * Math.pow(B, N - 1);
+    req = Math.pow(product, 1 / N);
     steps.push({
       label: "Equivalent Radius (Bundle)",
-      formula: N === 2 ? "r_eq = √(r × B)" : "r_eq = (r × (N×R)^(N-1))^(1/N)",
+      formula: "r_eq = (N × r × R^(N-1))^(1/N)",
       value: `${(req * 100).toFixed(4)} cm = ${req.toFixed(6)} m`,
-      explanation: `Bundle of ${N} sub-conductors with spacing B = ${B * 100} cm`
+      explanation: `Bundle of ${N} sub-conductors with spacing R = ${B * 100} cm`
     });
   }
 
